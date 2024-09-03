@@ -1,0 +1,25 @@
+# version: "3"
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  # kafbat-ui:
+  #   container_name: kafbat-ui
+  #   image: ghcr.io/kafbat/kafka-ui:latest
+  #   ports:
+  #     - 28080:28080
+  #   environment:
+  #     DYNAMIC_CONFIG_ENABLED: "true"
+  #   # volumes:
+  #   #   - ~/kui/config.yml:/etc/kafkaui/dynamic_config.yaml
