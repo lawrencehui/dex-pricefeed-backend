@@ -14,6 +14,7 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
   # kafbat-ui:
   #   container_name: kafbat-ui
   #   image: ghcr.io/kafbat/kafka-ui:latest
